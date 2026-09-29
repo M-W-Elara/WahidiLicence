@@ -75,19 +75,17 @@
             txtCompanyName.Name = "txtCompanyName";
             txtCompanyName.Size = new Size(100, 23);
             txtCompanyName.TabIndex = 3;
-            txtCompanyName.TextChanged += txtCompanyName_TextChanged;
             txtCompanyName.Enter += txtCompanyName_Enter;
             txtCompanyName.Leave += txtCompanyName_Leave;
             // 
             // txtNumberOfUsers
             // 
-            txtNumberOfUsers.BackColor = SystemColors.GradientActiveCaption;
-            txtNumberOfUsers.ForeColor = SystemColors.Window;
+            txtNumberOfUsers.BackColor = Color.White;
+            txtNumberOfUsers.ForeColor = SystemColors.ActiveBorder;
             txtNumberOfUsers.Location = new Point(282, 165);
             txtNumberOfUsers.Name = "txtNumberOfUsers";
             txtNumberOfUsers.Size = new Size(100, 23);
             txtNumberOfUsers.TabIndex = 4;
-            txtNumberOfUsers.TextChanged += txtNumberOfUsers_TextChanged;
             txtNumberOfUsers.Enter += txtNumberOfUsers_Enter;
             // 
             // lstOutput

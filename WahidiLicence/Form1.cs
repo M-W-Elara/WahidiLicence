@@ -68,7 +68,7 @@ namespace WahidiLicence
 
         private void txtNumberOfUsers_Enter(object sender, EventArgs e)
         {
-
+            txtNumberOfUsers.BackColor = SystemColors.Info;
         }
 
         private void txtCompanyName_Leave(object sender, EventArgs e)
@@ -76,14 +76,11 @@ namespace WahidiLicence
             txtCompanyName.BackColor = SystemColors.Window;
         }
 
-        private void txtNumberOfUsers_TextChanged(object sender, EventArgs e)
-        {
-            txtNumberOfUsers.BackColor = SystemColors.info;
-        }
+ 
 
-        private void txtCompanyName_TextChanged(object sender, EventArgs e)
+        private void txtNumberOfUsers_Leave(object sender, EventArgs e)
         {
-
+            txtNumberOfUsers.BackColor = SystemColors.Window;
         }
     }
 }
