@@ -112,7 +112,7 @@
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(97, 56);
             btnClear.TabIndex = 7;
-            btnClear.Text = "&Clear";
+            btnClear.Text = "C&lear";
             btnClear.UseVisualStyleBackColor = true;
             btnClear.Click += btnClear_Click;
             // 
