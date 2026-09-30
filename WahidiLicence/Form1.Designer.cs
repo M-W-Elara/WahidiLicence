@@ -34,10 +34,9 @@
             txtCompanyName = new TextBox();
             txtNumberOfUsers = new TextBox();
             lstOutput = new ListBox();
-            btnDisplay = new Button();
+            btnCal = new Button();
             btnClear = new Button();
             btnQuit = new Button();
-            label1 = new Label();
             SuspendLayout();
             // 
             // frmLicenseAgreement
@@ -96,15 +95,15 @@
             lstOutput.Size = new Size(261, 124);
             lstOutput.TabIndex = 5;
             // 
-            // btnDisplay
+            // btnCal
             // 
-            btnDisplay.Location = new Point(101, 235);
-            btnDisplay.Name = "btnDisplay";
-            btnDisplay.Size = new Size(97, 59);
-            btnDisplay.TabIndex = 6;
-            btnDisplay.Text = "&Calculate";
-            btnDisplay.UseVisualStyleBackColor = true;
-            btnDisplay.Click += btnDisplay_Click;
+            btnCal.Location = new Point(101, 235);
+            btnCal.Name = "btnCal";
+            btnCal.Size = new Size(97, 59);
+            btnCal.TabIndex = 6;
+            btnCal.Text = "Calculate && &Display";
+            btnCal.UseVisualStyleBackColor = true;
+            btnCal.Click += btnDisplay_Click;
             // 
             // btnClear
             // 
@@ -126,24 +125,14 @@
             btnQuit.UseVisualStyleBackColor = true;
             btnQuit.Click += btnQuit_Click;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(149, 99);
-            label1.Name = "label1";
-            label1.Size = new Size(155, 15);
-            label1.TabIndex = 9;
-            label1.Text = "Software Cost $100 per user:";
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(label1);
             Controls.Add(btnQuit);
             Controls.Add(btnClear);
-            Controls.Add(btnDisplay);
+            Controls.Add(btnCal);
             Controls.Add(lstOutput);
             Controls.Add(txtNumberOfUsers);
             Controls.Add(txtCompanyName);
@@ -151,7 +140,7 @@
             Controls.Add(lblCompany);
             Controls.Add(frmLicenseAgreement);
             Name = "Form1";
-            Text = "Form1";
+            Text = "Mahnaaz (Elara) Wahidi";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -164,9 +153,8 @@
         private TextBox txtCompanyName;
         private TextBox txtNumberOfUsers;
         private ListBox lstOutput;
-        private Button btnDisplay;
+        private Button btnCal;
         private Button btnClear;
         private Button btnQuit;
-        private Label label1;
     }
 }

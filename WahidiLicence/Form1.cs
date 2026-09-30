@@ -76,11 +76,16 @@ namespace WahidiLicence
             txtCompanyName.BackColor = SystemColors.Window;
         }
 
- 
+
 
         private void txtNumberOfUsers_Leave(object sender, EventArgs e)
         {
             txtNumberOfUsers.BackColor = SystemColors.Window;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
