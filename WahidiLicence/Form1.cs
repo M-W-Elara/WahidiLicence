@@ -26,7 +26,7 @@ namespace WahidiLicence
         }
 
 
-        private void btnDisplay_Click(object sender, EventArgs e)
+        private void btnCal_Click(object sender, EventArgs e)
         {
             // User input
             string companyName = txtCompanyName.Text;

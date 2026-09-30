@@ -103,7 +103,7 @@
             btnCal.TabIndex = 6;
             btnCal.Text = "Calculate && &Display";
             btnCal.UseVisualStyleBackColor = true;
-            btnCal.Click += btnDisplay_Click;
+            btnCal.Click += btnCal_Click;
             // 
             // btnClear
             // 
