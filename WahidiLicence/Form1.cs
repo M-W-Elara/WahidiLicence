@@ -83,9 +83,6 @@ namespace WahidiLicence
             txtNumberOfUsers.BackColor = SystemColors.Window;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
