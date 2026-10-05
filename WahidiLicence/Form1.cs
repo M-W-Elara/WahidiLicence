@@ -51,10 +51,10 @@ namespace WahidiLicence
             //display output
             lstOutput.Items.Add("Company Name: " + companyName);
             lstOutput.Items.Add("Number Of Users: " + numberOfUsers.ToString("N0"));
-            lstOutput.Items.Add("Software Cost: $" + softwareCost.ToString("C"));
-            lstOutput.Items.Add("Sub Total: $" + subTotal.ToString("C"));
-            lstOutput.Items.Add("Tax Amount: $" + taxAmount.ToString("C"));
-            lstOutput.Items.Add("Total Cost: $" + totalCost.ToString("C"));
+            lstOutput.Items.Add("Software Cost: " + softwareCost.ToString("C"));
+            lstOutput.Items.Add("Sub Total: " + subTotal.ToString("C"));
+            lstOutput.Items.Add("Tax Amount: " + taxAmount.ToString("C"));
+            lstOutput.Items.Add("Total Cost: " + totalCost.ToString("C"));
 
             btnClear.Focus();
 
@@ -76,13 +76,9 @@ namespace WahidiLicence
             txtCompanyName.BackColor = SystemColors.Window;
         }
 
-
-
         private void txtNumberOfUsers_Leave(object sender, EventArgs e)
         {
             txtNumberOfUsers.BackColor = SystemColors.Window;
         }
-
-        
     }
 }

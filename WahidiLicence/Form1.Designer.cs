@@ -86,14 +86,16 @@
             txtNumberOfUsers.Size = new Size(100, 23);
             txtNumberOfUsers.TabIndex = 4;
             txtNumberOfUsers.Enter += txtNumberOfUsers_Enter;
+            txtNumberOfUsers.Leave += txtNumberOfUsers_Leave;
             // 
             // lstOutput
             // 
             lstOutput.FormattingEnabled = true;
-            lstOutput.Location = new Point(183, 300);
+            lstOutput.Location = new Point(183, 297);
             lstOutput.Name = "lstOutput";
             lstOutput.Size = new Size(261, 124);
             lstOutput.TabIndex = 5;
+            lstOutput.TabStop = false;
             // 
             // btnCal
             // 
