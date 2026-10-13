@@ -33,6 +33,11 @@ namespace WahidiLicence
             int numberOfUsers = int.Parse(txtNumberOfUsers.Text);
             int softwareCost = 100;
 
+            LicenseAgreement1 license = new LicenseAgreement1(
+                companyName,
+                numberOfUsers,
+                softwareCost
+                );
 
             // Output
             decimal subTotal;
