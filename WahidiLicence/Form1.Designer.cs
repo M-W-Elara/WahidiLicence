@@ -13,7 +13,7 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
+            if (disposing && (components != null)) 
             {
                 components.Dispose();
             }
@@ -80,7 +80,7 @@
             // txtNumberOfUsers
             // 
             txtNumberOfUsers.BackColor = Color.White;
-            txtNumberOfUsers.ForeColor = SystemColors.ActiveBorder;
+            txtNumberOfUsers.ForeColor = SystemColors.WindowText;
             txtNumberOfUsers.Location = new Point(282, 165);
             txtNumberOfUsers.Name = "txtNumberOfUsers";
             txtNumberOfUsers.Size = new Size(100, 23);
