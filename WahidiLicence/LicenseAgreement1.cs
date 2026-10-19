@@ -9,26 +9,26 @@ namespace WahidiLicence
 
     {
         public string CompanyName { get; set; }
-        public int NumberofUsers { get; set; }
+        public int NumberOfUsers { get; set; }
         public decimal LicenseCostPerUser { get; set; }
 
         public LicenseAgreement1()
 
         {
             CompanyName = "";
-            NumberofUsers = 0;
+            NumberOfUsers = 0;
             LicenseCostPerUser = 100m;
         }
 
         public LicenseAgreement1(string companyName, int numberOfUsers, decimal licenseCostPerUser)
         {
             CompanyName = companyName;
-            NumberofUsers = numberOfUsers;
+            NumberOfUsers = numberOfUsers;
             LicenseCostPerUser = licenseCostPerUser;
         }
         public decimal CalculateSubTotal()
         {
-            return NumberofUsers * LicenseCostPerUser;
+            return NumberOfUsers * LicenseCostPerUser;
         }
         public decimal CalculateTaxAmount()
         {
