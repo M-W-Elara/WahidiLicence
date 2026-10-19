@@ -26,6 +26,19 @@ namespace WahidiLicence
             NumberofUsers = numberOfUsers;
             LicenseCostPerUser = licenseCostPerUser;
         }
+        public decimal CalculateSubTotal()
+        {
+            return NumberofUsers * LicenseCostPerUser;
+        }
+        public decimal CalculateTaxAmount()
+        {
+            return CalculateSubTotal() * 0.1m;
+        }
+        public decimal CalculateTotalCost()
+
+        {
+            return CalculateTotalCost() + CalculateTaxAmount();
+        }
  
     }
 }
