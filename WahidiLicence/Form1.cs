@@ -33,15 +33,14 @@ namespace WahidiLicence
             decimal totalCost;
 
             // User input
-            string companyName = txtCompanyName.Text;
-            int numberOfUsers = int.Parse(txtNumberOfUsers.Text);
-            int softwareCost = 100;
+            // Create object
+            LicenseAgreement1 license = new LicenseAgreement1();
 
-            LicenseAgreement1 license = new LicenseAgreement1(
-                companyName,
-                numberOfUsers,
-                softwareCost
-                );
+            // Set object properties
+            license.CompanyName = txtCompanyName.Text;
+            license.NumberOfUsers = int.Parse(txtNumberOfUsers.Text);
+            license.LicenseCostPerUser = 100m;
+
             subTotal = license.CalculateSubTotal();
             taxAmount = license.CalculateTaxAmount();
             totalCost = license.CalculateTotalCost();
@@ -49,34 +48,11 @@ namespace WahidiLicence
             // Display output
             lstOutput.Items.Add("Company Name: " + license.CompanyName);
             lstOutput.Items.Add("Number Of Users: " + license.NumberOfUsers.ToString("N0"));
-            lstOutput.Items.Add("Software Cost: " + softwareCost.ToString("C"));
+            lstOutput.Items.Add("Software Cost: " + license.LicenseCostPerUser.ToString("C"));
             lstOutput.Items.Add("Sub Total: " + subTotal.ToString("C"));
+            lstOutput.Items.Add("Tax Rate: 10%");
             lstOutput.Items.Add("Tax Amount: " + taxAmount.ToString("C"));
             lstOutput.Items.Add("Total Cost: " + totalCost.ToString("C"));
-
-            /*
-            // Output
-            decimal subTotal;
-            decimal taxRate;
-            decimal taxAmount;
-            decimal totalCost;
-
-            companyName = txtCompanyName.Text;
-
-            //Calculate
-            taxRate = 0.1m;
-            subTotal = numberOfUsers * softwareCost;
-            taxAmount = subTotal * taxRate;
-            totalCost = subTotal + taxAmount;
-
-            //display output
-            lstOutput.Items.Add("Company Name: " + companyName);
-            lstOutput.Items.Add("Number Of Users: " + numberOfUsers.ToString("N0"));
-            lstOutput.Items.Add("Software Cost: " + softwareCost.ToString("C"));
-            lstOutput.Items.Add("Sub Total: " + subTotal.ToString("C"));
-            lstOutput.Items.Add("Tax Amount: " + taxAmount.ToString("C"));
-            lstOutput.Items.Add("Total Cost: " + totalCost.ToString("C"));
-            */
 
             btnClear.Focus();
 

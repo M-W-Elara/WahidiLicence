@@ -37,8 +37,15 @@ namespace WahidiLicence
         public decimal CalculateTotalCost()
 
         {
-            return CalculateTotalCost() + CalculateTaxAmount();
+            return CalculateSubTotal() + CalculateTaxAmount();
         }
- 
+        public override string ToString()
+        {
+            return "Company Name: " + CompanyName +
+                "\nNumber of Users: " + NumberOfUsers.ToString("N0") +
+                "\nLicense Cost Per User: " + LicenseCostPerUser.ToString("C") +
+                "\nTotal Cost: " + CalculateTotalCost().ToString("C");
+        }
+
     }
 }
