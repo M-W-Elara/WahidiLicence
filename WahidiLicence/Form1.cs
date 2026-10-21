@@ -1,3 +1,5 @@
+using System.Net.NetworkInformation;
+
 namespace WahidiLicence
 {
     public partial class Form1 : Form
@@ -22,39 +24,63 @@ namespace WahidiLicence
 
         private void btnQuit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult buttonSelected;
+
+            buttonSelected = MessageBox.Show("Are you sure you want to quit?", "Quit Confirmation",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+            if (buttonSelected == DialogResult.Yes)
+
+            {
+                this.Close();
+            }
         }
 
 
         private void btnCal_Click(object sender, EventArgs e)
         {
+
             decimal subTotal;
             decimal taxAmount;
             decimal totalCost;
 
-            // User input
-            // Create object
-            LicenseAgreement1 license = new LicenseAgreement1();
+            int numberOfUsers;
+            bool isNumberOfUsersValid;
 
-            // Set object properties
-            license.CompanyName = txtCompanyName.Text;
-            license.NumberOfUsers = int.Parse(txtNumberOfUsers.Text);
-            license.LicenseCostPerUser = 100m;
+            isNumberOfUsersValid =
+                int.TryParse(txtNumberOfUsers.Text, out numberOfUsers);
 
-            subTotal = license.CalculateSubTotal();
-            taxAmount = license.CalculateTaxAmount();
-            totalCost = license.CalculateTotalCost();
+            if (isNumberOfUsersValid)
+            {
 
-            // Display output
-            lstOutput.Items.Add("Company Name: " + license.CompanyName);
-            lstOutput.Items.Add("Number Of Users: " + license.NumberOfUsers.ToString("N0"));
-            lstOutput.Items.Add("Software Cost: " + license.LicenseCostPerUser.ToString("C"));
-            lstOutput.Items.Add("Sub Total: " + subTotal.ToString("C"));
-            lstOutput.Items.Add("Tax Rate: 10%");
-            lstOutput.Items.Add("Tax Amount: " + taxAmount.ToString("C"));
-            lstOutput.Items.Add("Total Cost: " + totalCost.ToString("C"));
+                // User input
+                // Create object
+                LicenseAgreement1 license = new LicenseAgreement1();
 
-            btnClear.Focus();
+                // Set object properties
+                license.CompanyName = txtCompanyName.Text;
+                license.NumberOfUsers = numberOfUsers;
+                license.LicenseCostPerUser = 100m;
+
+                subTotal = license.CalculateSubTotal();
+                taxAmount = license.CalculateTaxAmount();
+                totalCost = license.CalculateTotalCost();
+
+                // Display output
+                lstOutput.Items.Add("Company Name: " + license.CompanyName);
+                lstOutput.Items.Add("Number Of Users: " + license.NumberOfUsers.ToString("N0"));
+                lstOutput.Items.Add("Software Cost: " + license.LicenseCostPerUser.ToString("C"));
+                lstOutput.Items.Add("Sub Total: " + subTotal.ToString("C"));
+                lstOutput.Items.Add("Tax Rate: 10%");
+                lstOutput.Items.Add("Tax Amount: " + taxAmount.ToString("C"));
+                lstOutput.Items.Add("Total Cost: " + totalCost.ToString("C"));
+
+                btnClear.Focus();
+            }
+            else
+            {
+                lstOutput.Items.Add("Please enter a valid whole number of users.");
+            }
 
 
         }
