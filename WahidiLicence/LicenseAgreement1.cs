@@ -11,6 +11,9 @@ namespace WahidiLicence
         public string CompanyName { get; set; }
         public int NumberOfUsers { get; set; }
         public decimal LicenseCostPerUser { get; set; }
+        public decimal SubTotal { get; set; }
+        public decimal TaxRate { get; set; }
+        public decimal TotalCost { get; set; }
 
         public LicenseAgreement1()
 
@@ -18,26 +21,38 @@ namespace WahidiLicence
             CompanyName = "";
             NumberOfUsers = 0;
             LicenseCostPerUser = 100m;
+            SubTotal = 0m;
+            TaxRate = 0.10m;
+            TotalCost = 0m;
         }
 
+        
+  
         public LicenseAgreement1(string companyName, int numberOfUsers, decimal licenseCostPerUser)
         {
             CompanyName = companyName;
             NumberOfUsers = numberOfUsers;
             LicenseCostPerUser = licenseCostPerUser;
+            SubTotal = 0m;
+            TaxRate = 0.10m;
+            TotalCost = 0m;
         }
         public decimal CalculateSubTotal()
         {
-            return NumberOfUsers * LicenseCostPerUser;
+
+            SubTotal = NumberOfUsers * LicenseCostPerUser;
+            return SubTotal;
         }
         public decimal CalculateTaxAmount()
         {
-            return CalculateSubTotal() * 0.1m;
+
+            return SubTotal * TaxRate;
         }
         public decimal CalculateTotalCost()
 
         {
-            return CalculateSubTotal() + CalculateTaxAmount();
+            TotalCost = SubTotal + CalculateTaxAmount();
+            return TotalCost;
         }
         public override string ToString()
         {

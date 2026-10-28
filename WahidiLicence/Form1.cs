@@ -55,12 +55,10 @@ namespace WahidiLicence
 
                 // User input
                 // Create object
-                LicenseAgreement1 license = new LicenseAgreement1();
-
-                // Set object properties
-                license.CompanyName = txtCompanyName.Text;
-                license.NumberOfUsers = numberOfUsers;
-                license.LicenseCostPerUser = 100m;
+                LicenseAgreement1 license = new LicenseAgreement1(
+                    txtCompanyName.Text.Trim(),
+                    numberOfUsers,
+                    100m);
 
                 subTotal = license.CalculateSubTotal();
                 taxAmount = license.CalculateTaxAmount();
