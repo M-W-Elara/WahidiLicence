@@ -46,6 +46,8 @@ namespace WahidiLicence
 
             int numberOfUsers;
             bool isNumberOfUsersValid;
+            bool isCompanyNameValid;
+            string companyName;
 
             isNumberOfUsersValid =
                 int.TryParse(txtNumberOfUsers.Text, out numberOfUsers);
@@ -66,13 +68,14 @@ namespace WahidiLicence
 
                 // Display output
                 lstOutput.Items.Add("Company Name: " + license.CompanyName);
-                lstOutput.Items.Add("Number Of Users: " + license.NumberOfUsers.ToString("N0"));
-                lstOutput.Items.Add("Software Cost: " + license.LicenseCostPerUser.ToString("C"));
-                lstOutput.Items.Add("Sub Total: " + subTotal.ToString("C"));
-                lstOutput.Items.Add("Tax Rate: 10%");
+                lstOutput.Items.Add("Number Of Users: " +
+                    license.NumberOfUsers.ToString("N0"));
+                lstOutput.Items.Add("Software Cost: " +
+                    license.LicenseCostPerUser.ToString("C"));
+                lstOutput.Items.Add("Sub Total: " + license.SubTotal.ToString("C"));
+                lstOutput.Items.Add("Tax Rate: " + license.TaxRate.ToString("P0"));
                 lstOutput.Items.Add("Tax Amount: " + taxAmount.ToString("C"));
-                lstOutput.Items.Add("Total Cost: " + totalCost.ToString("C"));
-
+                lstOutput.Items.Add("Total Cost: " + license.TotalCost.ToString("C"));
                 btnClear.Focus();
             }
             else

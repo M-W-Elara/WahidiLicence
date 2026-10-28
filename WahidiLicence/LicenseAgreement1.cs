@@ -59,7 +59,9 @@ namespace WahidiLicence
             return "Company Name: " + CompanyName +
                 "\nNumber of Users: " + NumberOfUsers.ToString("N0") +
                 "\nLicense Cost Per User: " + LicenseCostPerUser.ToString("C") +
-                "\nTotal Cost: " + CalculateTotalCost().ToString("C");
+                "\nSub Total:"+ SubTotal.ToString("C") +
+                " \nTax Rate:" + TaxRate.ToString("P0") +
+                "\nTotal Cost: " + TotalCost.ToString("C");
         }
 
     }
