@@ -46,8 +46,6 @@ namespace WahidiLicence
 
             int numberOfUsers;
             bool isNumberOfUsersValid;
-            bool isCompanyNameValid;
-            string companyName;
 
             isNumberOfUsersValid =
                 int.TryParse(txtNumberOfUsers.Text, out numberOfUsers);
@@ -78,12 +76,12 @@ namespace WahidiLicence
                 lstOutput.Items.Add("Total Cost: " + license.TotalCost.ToString("C"));
                 btnClear.Focus();
             }
+
             else
             {
                 lstOutput.Items.Add("Please enter a valid whole number of users.");
+
             }
-
-
         }
 
         private void txtCompanyName_Enter(object sender, EventArgs e)
@@ -106,4 +104,5 @@ namespace WahidiLicence
             txtNumberOfUsers.BackColor = SystemColors.Window;
         }
     }
+
 }
