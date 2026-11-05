@@ -40,9 +40,7 @@ namespace WahidiLicence
         private void btnCal_Click(object sender, EventArgs e)
         {
 
-            decimal subTotal;
             decimal taxAmount;
-            decimal totalCost;
 
             int numberOfUsers;
             bool isNumberOfUsersValid;
@@ -59,10 +57,13 @@ namespace WahidiLicence
                     txtCompanyName.Text.Trim(),
                     numberOfUsers,
                     100m);
+              
+                // Calculate
+                license.CalculateSubTotal();
+                license.CalculateTaxAmount();
+                license.CalculateTotalCost();
 
-                subTotal = license.CalculateSubTotal();
-                taxAmount = license.CalculateTaxAmount();
-                totalCost = license.CalculateTotalCost();
+                taxAmount = license.TaxAmount;
 
                 // Display output
                 lstOutput.Items.Add("Company Name: " + license.CompanyName);

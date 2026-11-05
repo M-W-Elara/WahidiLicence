@@ -13,6 +13,7 @@ namespace WahidiLicence
         public decimal LicenseCostPerUser { get; set; }
         public decimal SubTotal { get; set; }
         public decimal TaxRate { get; set; }
+        public decimal TaxAmount { get; set; }
         public decimal TotalCost { get; set; }
 
         public LicenseAgreement1()
@@ -23,6 +24,7 @@ namespace WahidiLicence
             LicenseCostPerUser = 100m;
             SubTotal = 0m;
             TaxRate = 0.10m;
+            TaxAmount = 0m;
             TotalCost = 0m;
         }
 
@@ -35,6 +37,7 @@ namespace WahidiLicence
             LicenseCostPerUser = licenseCostPerUser;
             SubTotal = 0m;
             TaxRate = 0.10m;
+            TaxAmount = 0m;
             TotalCost = 0m;
         }
         public decimal CalculateSubTotal()
@@ -46,12 +49,13 @@ namespace WahidiLicence
         public decimal CalculateTaxAmount()
         {
 
-            return SubTotal * TaxRate;
+            TaxAmount = SubTotal * TaxRate;
+            return TaxAmount;
         }
         public decimal CalculateTotalCost()
 
         {
-            TotalCost = SubTotal + CalculateTaxAmount();
+            TotalCost = SubTotal + TaxAmount;
             return TotalCost;
         }
         public override string ToString()
@@ -61,6 +65,7 @@ namespace WahidiLicence
                 "\nLicense Cost Per User: " + LicenseCostPerUser.ToString("C") +
                 "\nSub Total:"+ SubTotal.ToString("C") +
                 " \nTax Rate:" + TaxRate.ToString("P0") +
+                "\nTax Amount: " + TaxAmount.ToString("C") +
                 "\nTotal Cost: " + TotalCost.ToString("C");
         }
 
