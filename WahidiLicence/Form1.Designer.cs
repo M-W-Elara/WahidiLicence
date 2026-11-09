@@ -37,6 +37,11 @@
             btnCal = new Button();
             btnClear = new Button();
             btnQuit = new Button();
+            grpSupport = new GroupBox();
+            rdoPremiumSupport = new RadioButton();
+            rdoStandardSupport = new RadioButton();
+            rdoNoSupport = new RadioButton();
+            grpSupport.SuspendLayout();
             SuspendLayout();
             // 
             // frmLicenseAgreement
@@ -91,7 +96,7 @@
             // lstOutput
             // 
             lstOutput.FormattingEnabled = true;
-            lstOutput.Location = new Point(183, 297);
+            lstOutput.Location = new Point(160, 397);
             lstOutput.Name = "lstOutput";
             lstOutput.Size = new Size(261, 124);
             lstOutput.TabIndex = 5;
@@ -99,7 +104,7 @@
             // 
             // btnCal
             // 
-            btnCal.Location = new Point(101, 235);
+            btnCal.Location = new Point(78, 335);
             btnCal.Name = "btnCal";
             btnCal.Size = new Size(97, 59);
             btnCal.TabIndex = 6;
@@ -109,7 +114,7 @@
             // 
             // btnClear
             // 
-            btnClear.Location = new Point(254, 235);
+            btnClear.Location = new Point(231, 335);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(97, 56);
             btnClear.TabIndex = 7;
@@ -119,7 +124,7 @@
             // 
             // btnQuit
             // 
-            btnQuit.Location = new Point(414, 235);
+            btnQuit.Location = new Point(391, 335);
             btnQuit.Name = "btnQuit";
             btnQuit.Size = new Size(97, 56);
             btnQuit.TabIndex = 8;
@@ -127,11 +132,59 @@
             btnQuit.UseVisualStyleBackColor = true;
             btnQuit.Click += btnQuit_Click;
             // 
+            // grpSupport
+            // 
+            grpSupport.Controls.Add(rdoPremiumSupport);
+            grpSupport.Controls.Add(rdoStandardSupport);
+            grpSupport.Controls.Add(rdoNoSupport);
+            grpSupport.Location = new Point(149, 206);
+            grpSupport.Name = "grpSupport";
+            grpSupport.Size = new Size(261, 109);
+            grpSupport.TabIndex = 9;
+            grpSupport.TabStop = false;
+            grpSupport.Text = "Software Support Options";
+            grpSupport.Enter += grpSupport_Enter;
+            // 
+            // rdoPremiumSupport
+            // 
+            rdoPremiumSupport.AutoSize = true;
+            rdoPremiumSupport.Location = new Point(10, 75);
+            rdoPremiumSupport.Name = "rdoPremiumSupport";
+            rdoPremiumSupport.Size = new Size(119, 19);
+            rdoPremiumSupport.TabIndex = 2;
+            rdoPremiumSupport.TabStop = true;
+            rdoPremiumSupport.Text = "Premium Support";
+            rdoPremiumSupport.UseVisualStyleBackColor = true;
+            // 
+            // rdoStandardSupport
+            // 
+            rdoStandardSupport.AutoSize = true;
+            rdoStandardSupport.Location = new Point(10, 50);
+            rdoStandardSupport.Name = "rdoStandardSupport";
+            rdoStandardSupport.Size = new Size(117, 19);
+            rdoStandardSupport.TabIndex = 1;
+            rdoStandardSupport.TabStop = true;
+            rdoStandardSupport.Text = "Standard Support";
+            rdoStandardSupport.UseVisualStyleBackColor = true;
+            // 
+            // rdoNoSupport
+            // 
+            rdoNoSupport.AutoSize = true;
+            rdoNoSupport.Location = new Point(10, 25);
+            rdoNoSupport.Name = "rdoNoSupport";
+            rdoNoSupport.Size = new Size(86, 19);
+            rdoNoSupport.TabIndex = 0;
+            rdoNoSupport.TabStop = true;
+            rdoNoSupport.Text = "No Support";
+            rdoNoSupport.UseVisualStyleBackColor = true;
+            rdoNoSupport.CheckedChanged += radioButton1_CheckedChanged;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 609);
+            Controls.Add(grpSupport);
             Controls.Add(btnQuit);
             Controls.Add(btnClear);
             Controls.Add(btnCal);
@@ -143,6 +196,9 @@
             Controls.Add(frmLicenseAgreement);
             Name = "Form1";
             Text = "Mahnaaz (Elara) Wahidi";
+            Load += Form1_Load;
+            grpSupport.ResumeLayout(false);
+            grpSupport.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -158,5 +214,9 @@
         private Button btnCal;
         private Button btnClear;
         private Button btnQuit;
+        private GroupBox grpSupport;
+        private RadioButton rdoPremiumSupport;
+        private RadioButton rdoStandardSupport;
+        private RadioButton rdoNoSupport;
     }
 }

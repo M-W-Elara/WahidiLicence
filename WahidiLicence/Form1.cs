@@ -57,7 +57,7 @@ namespace WahidiLicence
                     txtCompanyName.Text.Trim(),
                     numberOfUsers,
                     100m);
-              
+
                 // Calculate
                 license.CalculateSubTotal();
                 license.CalculateTaxAmount();
@@ -103,6 +103,22 @@ namespace WahidiLicence
         private void txtNumberOfUsers_Leave(object sender, EventArgs e)
         {
             txtNumberOfUsers.BackColor = SystemColors.Window;
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoNoSupport.Checked)
+            {
+                supportType = "No Support";
+            }
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            rdoNoSupport.Checked = true;
+        }
+        private void grpSupport_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 
