@@ -15,6 +15,7 @@ namespace WahidiLicence
         public decimal TaxRate { get; set; }
         public decimal TaxAmount { get; set; }
         public decimal TotalCost { get; set; }
+        public string SupportType { get; set; }
 
         public LicenseAgreement1()
 

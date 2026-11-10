@@ -4,6 +4,9 @@ namespace WahidiLicence
 {
     public partial class Form1 : Form
     {
+        private const int NO_SUPPORT_COST = 1;
+        private const int STANDARD_SUPPORT_COST = 2;
+        private const int PREMIUM_SUPPORT_COST = 3;
         public Form1()
         {
             InitializeComponent();
@@ -109,7 +112,7 @@ namespace WahidiLicence
         {
             if (rdoNoSupport.Checked)
             {
-                supportType = "No Support";
+              supportType = NO_SUPPORT_COST;
             }
         }
         private void Form1_Load(object sender, EventArgs e)
@@ -120,6 +123,7 @@ namespace WahidiLicence
         {
 
         }
+
     }
 
 }
