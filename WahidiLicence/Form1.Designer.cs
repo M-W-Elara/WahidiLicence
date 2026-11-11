@@ -155,6 +155,7 @@
             rdoPremiumSupport.TabStop = true;
             rdoPremiumSupport.Text = "Premium Support";
             rdoPremiumSupport.UseVisualStyleBackColor = true;
+            rdoPremiumSupport.CheckedChanged += radioButton3_CheckedChanged;
             // 
             // rdoStandardSupport
             // 
@@ -166,6 +167,7 @@
             rdoStandardSupport.TabStop = true;
             rdoStandardSupport.Text = "Standard Support";
             rdoStandardSupport.UseVisualStyleBackColor = true;
+            rdoStandardSupport.CheckedChanged += radioButton2_CheckedChanged;
             // 
             // rdoNoSupport
             // 

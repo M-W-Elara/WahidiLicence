@@ -7,6 +7,9 @@ namespace WahidiLicence
         private const int NO_SUPPORT_COST = 1;
         private const int STANDARD_SUPPORT_COST = 2;
         private const int PREMIUM_SUPPORT_COST = 3;
+
+        private int selectedSupport;
+        private string supportType;
         public Form1()
         {
             InitializeComponent();
@@ -53,6 +56,20 @@ namespace WahidiLicence
 
             if (isNumberOfUsersValid)
             {
+                switch (selectedSupport)
+                {
+                    case NO_SUPPORT_COST:
+                        supportType = "No Support";
+                        break;
+
+                    case STANDARD_SUPPORT_COST:
+                        supportType = "Standard Support";
+                        break;
+
+                    case PREMIUM_SUPPORT_COST:
+                        supportType = "Premium Support";
+                        break;
+                }
 
                 // User input
                 // Create object
@@ -70,6 +87,7 @@ namespace WahidiLicence
 
                 // Display output
                 lstOutput.Items.Add("Company Name: " + license.CompanyName);
+                lstOutput.Items.Add("Support Type: " + supportType);
                 lstOutput.Items.Add("Number Of Users: " +
                     license.NumberOfUsers.ToString("N0"));
                 lstOutput.Items.Add("Software Cost: " +
@@ -112,7 +130,7 @@ namespace WahidiLicence
         {
             if (rdoNoSupport.Checked)
             {
-              supportType = NO_SUPPORT_COST;
+                selectedSupport = NO_SUPPORT_COST;
             }
         }
         private void Form1_Load(object sender, EventArgs e)
@@ -124,6 +142,21 @@ namespace WahidiLicence
 
         }
 
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoStandardSupport.Checked)
+            {
+                selectedSupport = STANDARD_SUPPORT_COST;
+            }
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoPremiumSupport.Checked)
+            {
+                selectedSupport = PREMIUM_SUPPORT_COST;
+            }
+        }
     }
 
 }
