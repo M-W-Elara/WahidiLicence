@@ -56,20 +56,7 @@ namespace WahidiLicence
 
             if (isNumberOfUsersValid)
             {
-                switch (selectedSupport)
-                {
-                    case NO_SUPPORT_COST:
-                        supportType = "No Support";
-                        break;
-
-                    case STANDARD_SUPPORT_COST:
-                        supportType = "Standard Support";
-                        break;
-
-                    case PREMIUM_SUPPORT_COST:
-                        supportType = "Premium Support";
-                        break;
-                }
+               
 
                 // User input
                 // Create object
@@ -77,11 +64,6 @@ namespace WahidiLicence
                     txtCompanyName.Text.Trim(),
                     numberOfUsers,
                     100m);
-
-                // Calculate
-                license.CalculateSubTotal();
-                license.CalculateTaxAmount();
-                license.CalculateTotalCost();
 
                 taxAmount = license.TaxAmount;
 
@@ -130,7 +112,7 @@ namespace WahidiLicence
         {
             if (rdoNoSupport.Checked)
             {
-                selectedSupport = NO_SUPPORT_COST;
+                selectedSupport = LicenseAgreement1.NO_SUPPORT_TYPE
             }
         }
         private void Form1_Load(object sender, EventArgs e)

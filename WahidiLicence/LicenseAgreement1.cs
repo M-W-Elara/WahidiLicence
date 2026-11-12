@@ -8,6 +8,10 @@ namespace WahidiLicence
     public class LicenseAgreement1
 
     {
+        public const string NO_SUPPORT_TYPE = "No Support";
+        public const string STANDARD_SUPPORT_TYPE = "Standard Support";
+        public const string PREMIUM_SUPPORT_TYPE = "Premium Support";
+
         public string CompanyName { get; set; }
         public int NumberOfUsers { get; set; }
         public decimal LicenseCostPerUser { get; set; }
@@ -16,6 +20,23 @@ namespace WahidiLicence
         public decimal TaxAmount { get; set; }
         public decimal TotalCost { get; set; }
         public string SupportType { get; set; }
+        public void SetSupportType(string supportType)
+        {
+            switch (supportType)
+            {
+                case NO_SUPPORT_TYPE:
+                    SupportType = NO_SUPPORT_TYPE;
+                    break;
+
+                case STANDARD_SUPPORT_TYPE:
+                    SupportType = STANDARD_SUPPORT_TYPE;
+                    break;
+
+                case PREMIUM_SUPPORT_TYPE:
+                    SupportType = PREMIUM_SUPPORT_TYPE;
+                    break;
+            }
+        }
 
         public LicenseAgreement1()
 
@@ -31,7 +52,7 @@ namespace WahidiLicence
 
         
   
-        public LicenseAgreement1(string companyName, int numberOfUsers, decimal licenseCostPerUser)
+        public LicenseAgreement1(string companyName, int numberOfUsers, decimal licenseCostPerUser, string supportType)
         {
             CompanyName = companyName;
             NumberOfUsers = numberOfUsers;
