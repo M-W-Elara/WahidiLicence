@@ -4,12 +4,8 @@ namespace WahidiLicence
 {
     public partial class Form1 : Form
     {
-        private const int NO_SUPPORT_COST = 1;
-        private const int STANDARD_SUPPORT_COST = 2;
-        private const int PREMIUM_SUPPORT_COST = 3;
 
-        private int selectedSupport;
-        private string supportType;
+        private string supportType = "";
         public Form1()
         {
             InitializeComponent();
@@ -25,6 +21,7 @@ namespace WahidiLicence
             txtCompanyName.Clear();
             txtNumberOfUsers.Clear();
             lstOutput.Items.Clear();
+            rdoNoSupport.Checked = true;
             txtCompanyName.Focus();
         }
 
@@ -63,13 +60,14 @@ namespace WahidiLicence
                 LicenseAgreement1 license = new LicenseAgreement1(
                     txtCompanyName.Text.Trim(),
                     numberOfUsers,
-                    100m);
+                    100m,
+                    supportType);
 
                 taxAmount = license.TaxAmount;
 
                 // Display output
                 lstOutput.Items.Add("Company Name: " + license.CompanyName);
-                lstOutput.Items.Add("Support Type: " + supportType);
+                lstOutput.Items.Add("Support Type: " + license.SupportType);
                 lstOutput.Items.Add("Number Of Users: " +
                     license.NumberOfUsers.ToString("N0"));
                 lstOutput.Items.Add("Software Cost: " +
@@ -112,7 +110,7 @@ namespace WahidiLicence
         {
             if (rdoNoSupport.Checked)
             {
-                selectedSupport = LicenseAgreement1.NO_SUPPORT_TYPE
+                supportType = LicenseAgreement1.NO_SUPPORT_TYPE;
             }
         }
         private void Form1_Load(object sender, EventArgs e)
@@ -128,7 +126,7 @@ namespace WahidiLicence
         {
             if (rdoStandardSupport.Checked)
             {
-                selectedSupport = STANDARD_SUPPORT_COST;
+                supportType = LicenseAgreement1.STANDARD_SUPPORT_TYPE;
             }
         }
 
@@ -136,7 +134,7 @@ namespace WahidiLicence
         {
             if (rdoPremiumSupport.Checked)
             {
-                selectedSupport = PREMIUM_SUPPORT_COST;
+                supportType = LicenseAgreement1.PREMIUM_SUPPORT_TYPE;
             }
         }
     }

@@ -19,7 +19,8 @@ namespace WahidiLicence
         public decimal TaxRate { get; set; }
         public decimal TaxAmount { get; set; }
         public decimal TotalCost { get; set; }
-        public string SupportType { get; set; }
+
+        public string SupportType { get; set; } = "";
         public void SetSupportType(string supportType)
         {
             switch (supportType)
@@ -60,25 +61,29 @@ namespace WahidiLicence
             SubTotal = 0m;
             TaxRate = 0.10m;
             TaxAmount = 0m;
+
             TotalCost = 0m;
+
+            SetSupportType(supportType);
+            CalculateTotalCost();
         }
-        public decimal CalculateSubTotal()
+        public void CalculateSubTotal()
         {
 
             SubTotal = NumberOfUsers * LicenseCostPerUser;
-            return SubTotal;
         }
-        public decimal CalculateTaxAmount()
+        public void CalculateTaxAmount()
         {
 
             TaxAmount = SubTotal * TaxRate;
-            return TaxAmount;
+           
         }
-        public decimal CalculateTotalCost()
+        public void CalculateTotalCost()
 
         {
+            CalculateSubTotal();
+            CalculateTaxAmount();
             TotalCost = SubTotal + TaxAmount;
-            return TotalCost;
         }
         public override string ToString()
         {
