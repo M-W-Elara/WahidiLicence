@@ -88,6 +88,7 @@ namespace WahidiLicence
         public override string ToString()
         {
             return "Company Name: " + CompanyName +
+                "\nSupport Type: " + SupportType +
                 "\nNumber of Users: " + NumberOfUsers.ToString("N0") +
                 "\nLicense Cost Per User: " + LicenseCostPerUser.ToString("C") +
                 "\nSub Total:"+ SubTotal.ToString("C") +

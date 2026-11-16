@@ -1,3 +1,5 @@
+using System.IO;
+using System.Drawing.Text;
 using System.Net.NetworkInformation;
 
 namespace WahidiLicence
@@ -6,6 +8,12 @@ namespace WahidiLicence
     {
 
         private string supportType = "";
+        private string licenseTransactionOutput = "LicenseTransactionOutput.txt";
+
+        private const int LISTBOX = 1;
+        private const int FILE = 2;
+        private const int BOTH = 3;
+
         public Form1()
         {
             InitializeComponent();
@@ -43,8 +51,6 @@ namespace WahidiLicence
         private void btnCal_Click(object sender, EventArgs e)
         {
 
-            decimal taxAmount;
-
             int numberOfUsers;
             bool isNumberOfUsersValid;
 
@@ -53,31 +59,28 @@ namespace WahidiLicence
 
             if (isNumberOfUsersValid)
             {
-               
 
-                // User input
+
+
                 // Create object
                 LicenseAgreement1 license = new LicenseAgreement1(
                     txtCompanyName.Text.Trim(),
                     numberOfUsers,
                     100m,
                     supportType);
+                // Output transaction header with date and time
 
-                taxAmount = license.TaxAmount;
+                outputMsg("************** Transaction Output at "
+                    + DateTime.Now.ToString("G")
+                    + "****************", FILE);
 
-                // Display output
-                lstOutput.Items.Add("Company Name: " + license.CompanyName);
-                lstOutput.Items.Add("Support Type: " + license.SupportType);
-                lstOutput.Items.Add("Number Of Users: " +
-                    license.NumberOfUsers.ToString("N0"));
-                lstOutput.Items.Add("Software Cost: " +
-                    license.LicenseCostPerUser.ToString("C"));
-                lstOutput.Items.Add("Sub Total: " + license.SubTotal.ToString("C"));
-                lstOutput.Items.Add("Tax Rate: " + license.TaxRate.ToString("P0"));
-                lstOutput.Items.Add("Tax Amount: " + taxAmount.ToString("C"));
-                lstOutput.Items.Add("Total Cost: " + license.TotalCost.ToString("C"));
+
+                // Display transaction in ListBox and save to file
+                outputMsg(license.ToString(), BOTH);
+                outputMsg("****************************************", BOTH);
                 btnClear.Focus();
             }
+
 
             else
             {
@@ -85,6 +88,32 @@ namespace WahidiLicence
 
             }
         }
+        private void outputMsg(string msg, int type)
+        {
+            StreamWriter sw;
+
+            if (type == FILE || type == BOTH)
+            {
+                sw = File.AppendText(licenseTransactionOutput);
+                string[] lines = msg.Split('\n');
+                for (int i = 0; i < lines.Length; i++)
+                {
+                    sw.WriteLine(lines[i]);
+                }
+                sw.Close();
+            }
+            if (type == LISTBOX || type == BOTH)
+            {
+                string[] lines = msg.Split('\n');
+                for (int i = 0; i < lines.Length; i++)
+                {
+                    lstOutput.Items.Add(lines[i]);
+                }
+            }
+
+        }
+                
+
 
         private void txtCompanyName_Enter(object sender, EventArgs e)
         {
